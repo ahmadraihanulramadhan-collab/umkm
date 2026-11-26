@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kopi Kenangan</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f1e8;
+            color: #2b211b;
+        }
+
+        /* Navbar & ScrollSpy Active Styling */
+        .navbar {
+            background-color: #1c150f !important;
+        }
+
+        .navbar-brand {
+            font-size: 22px;
+        }
+
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #d1a06b !important;
+        }
+
+        /* Parallax Scrolling pada Hero Section */
+        .hero {
+            min-height: 500px;
+            background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1920&q=80");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Kunci efek Parallax */
+        }
+
+        .hero h1 {
+            font-size: 50px;
+        }
+
+        .hero .text-warning {
+            color: #d1a06b !important;
+        }
+
+        /* Section Styling */
+        section h2 {
+            color: #2b211b;
+        }
+
+        section p {
+            line-height: 1.7;
+        }
+
+        /* Hover Animation pada Card (Menu & Testimoni) */
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card img {
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Hover Animation pada Gallery */
+        .gallery-box {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-box:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        /* Hover Animation pada Tombol */
+        .btn {
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Contact Icon */
+        .contact-icon {
+            color: #a87545;
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1c150f;
+        }
+
+        footer h4 {
+            color: white;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        /* Responsive HP */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero {
+                min-height: 450px;
+                background-attachment: scroll; /* Mengatasi kendala performa parallax di mobile */
+            }
+        }
+    </style>
+
+</head>
+
+<!-- Penerapan ScrollSpy pada body -->
+<body data-bs-spy="scroll" data-bs-target="#navbarMenu" data-bs-offset="100" tabindex="0">
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="#">
+            <i class="bi bi-cup-hot-fill text-warning"></i>
+            Kopi Kenangan
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#menu">Menu</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">Gallery</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#faq">FAQ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimoni">Testimoni</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= BANNER (PARALLAX HERO) ================= -->
+
+<section id="home" class="hero text-white py-5 d-flex align-items-center">
+
+    <div class="container py-5" data-aos="fade-up" data-aos-duration="1000">
+
+        <div class="row align-items-center min-vh-50">
+
+            <div class="col-md-7">
+
+                <p class="text-warning fw-bold">
+                    WELCOME TO KOPI KENANGAN
+                </p>
+
+                <h1 class="display-3 fw-bold">
+                    Secangkir Kenangan,
+                    <span class="text-warning">Sejuta Rasa.</span>
+                </h1>
+
+                <p class="lead">
+                    Kopi berkualitas untuk menemani
+                    setiap momen berharga Anda.
+                </p>
+
+                <a href="#menu" class="btn btn-warning">
+                    Lihat Menu
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="py-5 bg-white">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-md-7" data-aos="fade-right" data-aos-duration="1000">
+
+                <p class="text-warning fw-bold">
+                    ABOUT US
+                </p>
+
+                <h2 class="fw-bold">
+                    Tentang Kopi Kenangan
+                </h2>
+
+                <p class="text-muted">
+                    Kopi Kenangan adalah UMKM yang menyajikan
+                    kopi berkualitas dengan harga terjangkau.
+                </p>
+
+                <p class="text-muted">
+                    Kami menggunakan biji kopi pilihan untuk
+                    menghasilkan rasa yang nikmat dan khas.
+                </p>
+
+                <a href="#contact" class="btn btn-outline-dark">
+                    Selengkapnya
+                </a>
+
+            </div>
+
+            <div class="col-md-5 text-center" data-aos="fade-left" data-aos-duration="1000">
+
+                <img src="kopi1.jpg" class="img-fluid rounded shadow" alt="Tentang Kopi Kenangan">
+
+                <h4 class="mt-3">
+                    Secangkir Kenangan
+                </h4>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+
+<section id="menu" class="py-5 bg-body-secondary">
+
+    <div class="container">
+
+        <div class="text-center mb-4" data-aos="fade-up">
+
+            <p class="text-warning fw-bold">
+                OUR MENU
+            </p>
+
+            <h2 class="fw-bold">
+                Menu Favorit Kami
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- MENU 1 -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="kopi2.jpg" class="card-img-top" alt="Kopi Kenangan Mantan">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title">
+                            Kopi Kenangan Mantan
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Kopi Susu Gula Aren
+                        </p>
+
+                        <h6 class="text-warning">
+                            Rp 18.000
+                        </h6>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- MENU 2 -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="kopi3.jpg" class="card-img-top" alt="Caramel Macchiato">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title">
+                            Caramel Macchiato
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Kopi Susu Caramel
+                        </p>
+
+                        <h6 class="text-warning">
+                            Rp 20.000
+                        </h6>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- MENU 3 -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="kopi4.jpg" class="card-img-top" alt="Americano">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title">
+                            Americano
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Espresso dengan Air
+                        </p>
+
+                        <h6 class="text-warning">
+                            Rp 15.000
+                        </h6>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- MENU 4 -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="kopi5.jpg" class="card-img-top" alt="Vanilla Latte">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="card-title">
+                            Vanilla Latte
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Kopi Susu Vanilla
+                        </p>
+
+                        <h6 class="text-warning">
+                            Rp 20.000
+                        </h6>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery" class="py-5 bg-light">
+
+    <div class="container">
+
+        <h2 class="text-center mb-4" data-aos="fade-up">Suasana Kopi Kenangan</h2>
+
+        <div class="row g-3">
+
+            <!-- Gambar 1 -->
+            <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="gallery-box">
+                    <img src="kopi6.jpg" class="gallery-img" alt="Suasana 1">
+                </div>
+            </div>
+
+            <!-- Gambar 2 -->
+            <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="gallery-box">
+                    <img src="kopi7.jpg" class="gallery-img" alt="Suasana 2">
+                </div>
+            </div>
+
+            <!-- Gambar 3 -->
+            <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="gallery-box">
+                    <img src="kopi1.jpg" class="gallery-img" alt="Suasana 3">
+                </div>
+            </div>
+
+            <!-- Gambar 4 -->
+            <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="400">
+                <div class="gallery-box">
+                    <img src="kopi4.jpg" class="gallery-img" alt="Suasana 4">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FAQ ================= -->
+
+<section id="faq" class="py-5 bg-body-secondary">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="text-center mb-4">
+
+            <p class="text-warning fw-bold">
+                FAQ
+            </p>
+
+            <h2 class="fw-bold">
+                Pertanyaan Umum
+            </h2>
+
+        </div>
+
+        <div class="accordion" id="faqAccordion">
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
+
+                        Apakah tersedia pemesanan online?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+                        Ya, silakan hubungi kami melalui WhatsApp.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+
+                        Apakah tersedia kopi tanpa gula?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+                        Ya, tingkat gula dapat disesuaikan.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+
+                        Apakah bisa pesan dalam jumlah banyak?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body">
+                        Tentu, silakan hubungi kami terlebih dahulu.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TESTIMONI ================= -->
+
+<section id="testimoni" class="py-5 bg-white">
+
+    <div class="container">
+
+        <div class="text-center mb-4" data-aos="fade-up">
+
+            <p class="text-warning fw-bold">
+                TESTIMONI
+            </p>
+
+            <h2 class="fw-bold">
+                Apa Kata Pelanggan?
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body text-center">
+
+                        <img src="image/user1.jpg" class="rounded-circle img-fluid mb-3"
+                            style="width: 80px; height: 80px; object-fit: cover;" alt="Rizky A.">
+
+                        <p>
+                            "Kopinya enak dan harganya terjangkau!"
+                        </p>
+
+                        <strong>
+                            — Rizky A.
+                        </strong>
+
+                        <div class="text-warning mt-2">
+                            ★★★★★
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body text-center">
+
+                        <img src="image/user2.jpg" class="rounded-circle img-fluid mb-3"
+                            style="width: 80px; height: 80px; object-fit: cover;" alt="Sinta P.">
+
+                        <p>
+                            "Tempat nyaman dan pelayanannya ramah."
+                        </p>
+
+                        <strong>
+                            — Sinta P.
+                        </strong>
+
+                        <div class="text-warning mt-2">
+                            ★★★★★
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body text-center">
+
+                        <img src="image/user3.jpg" class="rounded-circle img-fluid mb-3"
+                            style="width: 80px; height: 80px; object-fit: cover;" alt="Dimas R.">
+
+                        <p>
+                            "Kopi Kenangan Mantan favorit saya!"
+                        </p>
+
+                        <strong>
+                            — Dimas R.
+                        </strong>
+
+                        <div class="text-warning mt-2">
+                            ★★★★★
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="py-5 bg-body-secondary">
+
+    <div class="container">
+
+        <div class="text-center mb-5" data-aos="fade-up">
+            <p class="text-warning fw-bold">CONTACT US</p>
+            <h2 class="fw-bold">Hubungi Kami</h2>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- FORM -->
+            <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
+
+                <form>
+
+                    <div class="mb-4">
+                        <label class="form-label">Nama</label>
+                        <input type="text" class="form-control" placeholder="Masukkan nama Anda">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Masukkan email Anda">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Pesan</label>
+                        <textarea class="form-control" rows="6" placeholder="Tulis pesan Anda di sini"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Kirim Pesan
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- MAPS -->
+            <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
+
+                <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
+                    <iframe
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=107.58%2C-6.95%2C107.70%2C-6.88&layer=mapnik&marker=-6.9175%2C107.6191"
+                        style="border: 0;" allowfullscreen loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- INFORMASI KONTAK -->
+        <div class="row text-center mt-5 g-4" data-aos="fade-up">
+
+            <div class="col-md-6 col-lg-3">
+                <i class="bi bi-telephone-fill fs-1 text-primary"></i>
+                <p class="mt-3 mb-0">+62 812-3456-7890</p>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <i class="bi bi-envelope-fill fs-1 text-primary"></i>
+                <p class="mt-3 mb-0">info@example.com</p>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <i class="bi bi-instagram fs-1 text-primary"></i>
+                <p class="mt-3 mb-0">@namakamu</p>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <i class="bi bi-facebook fs-1 text-primary"></i>
+                <p class="mt-3 mb-0">Facebook Page</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row g-4">
+            
+            <!-- Branding & Deskripsi -->
+            <div class="col-lg-4 col-md-6">
+                <h4 class="fw-bold">
+                    <i class="bi bi-cup-hot-fill text-warning"></i>
+                    Kopi Kenangan
+                </h4>
+                <p class="text-secondary mt-3">
+                    Secangkir kenangan, sejuta rasa. Menyajikan kopi berkualitas terbaik untuk menemani setiap momen berharga Anda.
+                </p>
+                <div class="d-flex gap-3 fs-5 mt-3">
+                    <a href="#" class="text-warning"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-warning"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-warning"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="text-warning"><i class="bi bi-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!-- Navigasi Cepat -->
+            <div class="col-lg-2 col-md-6">
+                <h5 class="text-white mb-3 fw-bold">Navigasi</h5>
+                <ul class="list-unstyled text-secondary">
+                    <li class="mb-2"><a href="#home" class="text-secondary text-decoration-none">Home</a></li>
+                    <li class="mb-2"><a href="#about" class="text-secondary text-decoration-none">About</a></li>
+                    <li class="mb-2"><a href="#menu" class="text-secondary text-decoration-none">Menu</a></li>
+                    <li class="mb-2"><a href="#gallery" class="text-secondary text-decoration-none">Gallery</a></li>
+                    <li class="mb-2"><a href="#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Jam Operasional -->
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-3 fw-bold">Jam Buka</h5>
+                <ul class="list-unstyled text-secondary">
+                    <li class="mb-2"><strong>Senin - Jumat:</strong> 08:00 - 22:00</li>
+                    <li class="mb-2"><strong>Sabtu - Minggu:</strong> 08:00 - 23:00</li>
+                    <li class="text-warning mt-2"><i class="bi bi-clock-history"></i> Buka Setiap Hari</li>
+                </ul>
+            </div>
+
+            <!-- Kontak Singkat -->
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-3 fw-bold">Lokasi & Kontak</h5>
+                <p class="text-secondary mb-2">
+                    <i class="bi bi-geo-alt-fill text-warning me-2"></i>Jl. Kenangan No. 123, Bandung
+                </p>
+                <p class="text-secondary mb-2">
+                    <i class="bi bi-telephone-fill text-warning me-2"></i>+62 812-3456-7890
+                </p>
+                <p class="text-secondary">
+                    <i class="bi bi-envelope-fill text-warning me-2"></i>info@kopikenangan.com
+                </p>
+            </div>
+
+        </div>
+
+        <hr class="border-secondary my-4">
+
+        <!-- Hak Cipta & Tombol Ke Atas -->
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="text-secondary mb-0">
+                    © 2026 Kopi Kenangan. All Rights Reserved.
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                <a href="#home" class="btn btn-outline-warning btn-sm rounded-pill px-3">
+                    Kembali ke Atas <i class="bi bi-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS (Animate On Scroll) JS & Inisialisasi -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        once: true, // Animasi dijalankan 1 kali saat di-scroll
+        duration: 800 // Durasi animasi standar (ms)
+    });
+</script>
+
+</body>
+
+</html>
